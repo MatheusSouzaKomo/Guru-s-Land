@@ -9,11 +9,12 @@ html {
 }
 
 body {
-  height: 100dvh;
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
   width: 100%;
   background-color: #CCE6F4;
-  background-image: url('background.png');
+  background-image: url('assets/background.png');
     background-size: cover;
     
 
@@ -23,48 +24,77 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(to bottom, #175676, #CCE6F4);
 
     & nav {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 70px;
 
       .header_button {
-        background-color: transparent;
-        color: rgb(0, 0, 0);
-        border: #333 solid 1px;
-        padding: 10px 15px;
         text-decoration: none;
-        border-radius: 5px;
-        font-size: 14px;
-        transition: all 0.2s ease;
+        padding: 15px 30px;
+        border: 2px solid #2c2c2c;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.4s ease;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+        font-weight: bold;
+        margin: 10px 0 10px;
 
         &:hover {
-          background-color: #333;
-          color: white;
+            border-color: #666666;
+            background: #292929;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 255, 255, 0.25) 0%,
+                rgba(255, 255, 255, 0) 70%
+            );
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        &:hover::after {
+            transform: scale(4);
         }
       }
     } /* Fim do nav */
 
     .logo {
-      width: 600px;
+      width: 1000px;
       height: auto;
     }
   } /* Fim do header */
 
   & main {
+    flex: 1;
     width: 100%;
     height: 80%;
-    margin-top: 100px;
+    margin-top: 40px;
 
     & h2 {
       text-align: center;
-      margin: 20px 0;
+      margin: 10px 0 10px;
       font-style: italic;
+      font-size: 40px;
     }
 
     #calltoaction {
-      margin: 20px;
+        display: flex;
+        justify-self: center;
+        margin: 20px;
       padding: 10px 15px;
       border: none;
       border-radius: 5px;
@@ -204,5 +234,118 @@ body {
         }
       }
     }
+    #atractions {
+        padding: 40px 20px;
+        text-align: center;
+        h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            }
+        .atractions-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            .atraction-card {
+                width: 500px;
+                background: #fff;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                transition: transform 0.3s ease;
+                h4 {
+                    padding: 10px;
+                    font-size: 16px;
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    padding: 10px 10px 10px;
+                }
+                &:hover {
+                    transform: translateY(-6px);
+                }
+            }
+        }
+    }
+    .snacks-section {
+        padding: 0 20px 50px;
+    }
+
+    /* Header com imagem */
+    .snacks-header {
+    height: 220px;
+    background-image: url("img_lanchonete_header.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    margin-bottom: 40px;
+    }
+
+    .snacks-header h3 {
+    font-size: 32px;
+    }
+
+    .snacks-header p {
+    font-size: 16px;
+    }
+
+    /* Cards */
+    .snacks-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+
+    .snack-card {
+    width: 230px;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform 0.3s ease;
+    }
+
+    .snack-card:hover {
+    transform: translateY(-6px);
+    }
+
+    .snack-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    }
+
+    .snack-card h4 {
+    margin: 10px 0 5px;
+    }
+
+    .snack-card p {
+    font-size: 14px;
+    padding: 0 10px;
+    }
+
+    .price {
+    display: block;
+    margin: 10px 0 15px;
+    font-weight: bold;
+    color: #ff9800;
+    }
   } /* Fim do main */
+
+  & footer {
+    width: 100%;
+    height: 200px;
+    background-color: #708D81;
+    color: white;
+    padding: 20px 0;
+  }
 } /* Fim do body */
