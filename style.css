@@ -1,11 +1,11 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,6 +13,9 @@ body {
   min-height: 100%;
   width: 100%;
   background-color: #CCE6F4;
+  background-image: url('background.png');
+    background-size: cover;
+    
 
   & header {
     width: 100%;
@@ -27,7 +30,7 @@ body {
       gap: 10px;
 
       .header_button {
-        background-color: #33333300;
+        background-color: transparent;
         color: rgb(0, 0, 0);
         border: #333 solid 1px;
         padding: 10px 15px;
@@ -41,76 +44,165 @@ body {
           color: white;
         }
       }
-    }
+    } /* Fim do nav */
 
-    & h1 {
-      text-align: center;
+    .logo {
+      width: 600px;
+      height: auto;
     }
-    }
+  } /* Fim do header */
 
   & main {
     width: 100%;
     height: 80%;
-    & h2{
-        text-align: center;
-        margin: 20px 0;
-        font-style: italic;
-    }
-    & button{
-        margin: 20px;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 5px;
-        background-color: #333;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        &:hover {
-            background-color: #555;
-            transform: scale(1.05);
-        }
-    }
-    .slider{
-        position: relative;
-        width: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        justify-self: center;
-        overflow: hidden;
-        border-radius: 10px;
-        .button_slide {
-            position: absolute;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            border: none;
-            font-size: 30px;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        .prev {
-            left: 5px;
-        }
-        .next {
-            right: 5px;
-        }
-        .slides{
-            display: flex;
-            height: 100%;
-            transition: transform 0.6s ease;
-            will-change: transform;
-            img{
-                flex: 0 0 100%;
-                flex-shrink: 0;
-                width: 100%;
-                height: 100%;
-                border: #333 solid 2px;
-                border-radius: 10px;
-                object-fit: cover;
+    margin-top: 100px;
 
+    & h2 {
+      text-align: center;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    #calltoaction {
+      margin: 20px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #175676;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #2789b9;
+        transform: scale(1.05);
+      }
+    }
+
+    .slider {
+      position: relative;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+      overflow: hidden;
+      border-radius: 10px;
+
+      .button_slide {
+        position: absolute;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: none;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+
+      .prev { left: 5px; }
+      .next { right: 5px; }
+
+      .slides {
+        display: flex;
+        height: 100%;
+        transition: transform 0.6s ease;
+        will-change: transform;
+
+        img {
+          flex: 0 0 100%;
+          width: 100%;
+          height: 100%;
+          border: #333 solid 2px;
+          border-radius: 10px;
+          object-fit: cover;
+        }
+      }
+    } /* Fim do slider */
+
+    .section-info {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0;
+        
+      .info_buttons {
+        display: flex;
+        gap: 20px;
+
+        .info_button {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: bold;
+          background-color: #175676;
+          color: #fff;
+          border: none;
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.1);
+            background-color: #2789b9;
+          }
+        }
+        #openMap {
+            &:hover {
+                transform: rotate(-25deg);
             }
         }
+        #openFoodCourt {
+            &:hover {
+                transform: rotate(25deg);
+            }
+        }
+      }
     }
-    
-}
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none; /* Escondido por padrão */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+
+      &.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: #CCE6F4;
+        padding: 30px;
+        border-radius: 15px;
+        position: relative;
+        max-width: 90%;
+        text-align: center;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          margin-top: 15px;
+        }
+
+        #img_map {
+            height: 500px;
+        }
+
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          font-size: 30px;
+          cursor: pointer;
+          color: #333;
+        }
+      }
+    }
+  } /* Fim do main */
+} /* Fim do body */

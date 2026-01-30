@@ -15,11 +15,11 @@
             <a href="#snacks" class="header_button" id="button_food">Praça de alimentação</a>
             <a href="#contacts" class="header_button" id="button_footer">Contato</a>
         </nav>
-        <h1>Guru's Land</h1>
+        <img src="logo_grande.png" alt="" class="logo">
     </header>
 
     <main>
-        <h2>Um mundo feito pra sorrir</h2>
+        <h2>"Um mundo feito pra sorrir"</h2>
         <button id="calltoaction">Compre ingressos agora!</button>
             <div id="atractions">
             <h3>Atrações</h3>
@@ -39,11 +39,28 @@
             <button class="button_slide prev">❮</button>
             <button class="button_slide next">❯</button>
         </section>
-        </section class="map-section">
-            <div id="map">
-                <h3>Localização</h3>
-                <img src="img_mapa.jpg" alt="Mapa do Parque">
+        <section class="section-info">
+            <div class="info_buttons">
+                <button id="openMap" class="info_button">Mapa Guia</button>
+                <button id="openFoodCourt" class="info_button">Praça de Alimentação</button>
             </div>
+
+            <div id="map" class="modal-overlay">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModal">&times;</span>
+                    <h2>Mapa do Parque</h2>
+                    <img src="img_mapa.jpg" alt="Mapa do Parque" id="img_map">
+                </div>     
+            </div>
+
+            <div id="food-court" class="modal-overlay">
+                <div class="modal-content">
+                    <span class="close-button" id="closeFoodCourt">&times;</span>
+                    <h2>Praça de Alimentação</h2>
+                    <img src="alimentacao.jpg" alt="Praça de Alimentação">
+                </div>
+            </div>
+        </section>
         <section class="snacks-section">
             <div id="snacks">
                 <h3>Lanchonete</h3>
