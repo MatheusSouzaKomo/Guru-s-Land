@@ -1,0 +1,9 @@
+h1 {
+ font-size: 5em;
+ position: relative;
+    color: #333;
+    
+}
+html, body{
+    min-height: 100%;
+}
